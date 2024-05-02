@@ -1,2 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/cr8OKdXl)
-# Labb2-DbFirst-Template
+# Labb 2 - Applikation med EntityFramework Database first
+
+Simpel WPF applikation som är baserad på .bak-filen från [Labb 1](https://github.com/JesperWhendin/Databas-Labb-1) där man kan uppdatera saldo etc.
+
+https://github.com/JesperWhendin/Utveckling-mot-Databaser-och-Databashantering-NET23/blob/main/assets/Labb2.md
