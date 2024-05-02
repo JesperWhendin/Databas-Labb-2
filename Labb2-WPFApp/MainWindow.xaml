@@ -1,0 +1,156 @@
+﻿<Window
+    x:Class="Labb2_WPFApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Labb2_WPFApp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="JW's Labb2"
+    Width="800"
+    Height="345"
+    MinWidth="400"
+    MinHeight="345"
+    mc:Ignorable="d">
+
+    <Grid Background="PapayaWhip">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="1.1*" />
+            <ColumnDefinition Width="10" />
+
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <ComboBox
+            Name="StoreComboBox"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5,0"
+            SelectionChanged="StoreComboBox_OnSelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding Name}" />
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ListBox
+            Name="StoreBalanceListBox"
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="5"
+            SelectionChanged="StoreBalanceListBox_OnSelectionChanged"
+            SelectionMode="Single">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Isbn13Navigation}" />
+                        <TextBlock Text=" - " />
+                        <TextBlock Text="{Binding Balance}" />
+                        <TextBlock Text=" st." />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Label
+            Grid.Row="1"
+            Grid.Column="3"
+            HorizontalContentAlignment="Center"
+            Content="Book Info:" />
+
+        <Grid Grid.Row="2" Grid.Column="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBox
+                Name="BookInfoBox"
+                Grid.Row="0"
+                Grid.Column="1"
+                Height="Auto"
+                Margin="5"
+                IsReadOnly="True" />
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalContentAlignment="Center"
+                Content="Set new balance:" />
+
+            <TextBox
+                Name="UpdateBalanceTextBox"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="5" />
+
+            <Button
+                Name="UpdateBalanceBtn"
+                Grid.Row="3"
+                Grid.Column="1"
+                Height="30"
+                Margin="5"
+                Click="UpdateBalanceBtn_OnClick"
+                Content="Update Balance" />
+
+        </Grid>
+
+        <StackPanel Grid.Row="2" Grid.Column="5">
+            <TextBlock
+                Margin="5"
+                Text="Select an item to the right under Available Books to add it to the currently selected store."
+                TextWrapping="Wrap" />
+            <ContentControl Height="5" />
+            <Button
+                Name="AddBookToStoreBtn"
+                Height="30"
+                Margin="5,5,5,0"
+                Content="Add Book to Store"
+                Click="AddBookToStoreBtn_OnClick"/>
+            <ContentControl Height="48" />
+            <TextBlock
+                Margin="5"
+                Text="Select an item to the left in the balance box to remove it from the currently selected store."
+                TextWrapping="Wrap" />
+            <ContentControl Height="5" />
+            <Button
+                Name="RemoveBookFromStoreBtn"
+                Height="30"
+                Margin="5,5,5,0"
+                Content="Remove Book from Store"
+                Click="RemoveBookFromStoreBtn_OnClick"/>
+        </StackPanel>
+
+        <Label
+            Grid.Row="1"
+            Grid.Column="7"
+            HorizontalContentAlignment="Center"
+            Content="Available books:" />
+        <ListBox
+            Name="BooksListBox"
+            Grid.Row="2"
+            Grid.Column="7"
+            Margin="5" />
+    </Grid>
+
+</Window>
